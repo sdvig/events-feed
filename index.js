@@ -1,9 +1,5 @@
-const axios = require('axios')
+const app = require('./app')
 
-const main = async () => {
-    const res = await axios.get('https://google.com')
-    
-    console.log(res.data)
-}
-
-main()
+app.listen(3000, () => {
+  console.log('Server listening.')
+})

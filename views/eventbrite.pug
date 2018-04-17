@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    h1 Hello!
+    if events.length
+        p Here are the <strong>#{events.length}</strong> events we've found:
+        each event in events
+          div.event
+            p #{event.name} <strong>#{event.type}</strong>
+            p.date #{event.time}
+            p !{event.description}
+
+        pre= JSON.stringify(events, null, 2)
+    else
+        p There's no events :(
+    script.
+        console.log(!{JSON.stringify(events)})
