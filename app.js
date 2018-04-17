@@ -14,10 +14,6 @@ app.set('view engine', 'pug')
 app.set('views', `${__dirname}/views`)
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res, next) => {
-    res.send('Hello world')
-})
-
 const START_DATE = startOfToday()
 const END_DATE = addDays(START_DATE, 7)
 
@@ -90,7 +86,7 @@ const formatEventBriteEvents = (events) => {
 }
 
 
-app.get('/events', async (req, res, next) => {
+app.get('/', async (req, res, next) => {
 
     let events = [];
     const meetupEvents = await getMeetupEvents()
